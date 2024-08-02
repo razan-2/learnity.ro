@@ -1,0 +1,23 @@
+$white: #f0e6dd;
+$first-blue: #0cada7;
+$second-blue: #c7f1f0;
+$orange: #f8a12e;
+$second-orange: #fec782;
+$red: #be3852;
+$lighter-red: #ebbcc5;
+$green: #305244;
+$lighter-green: #cfc693;
+$black: #242331;
+
+* {
+    margin: 0;
+    padding: 0;
+    border: none;
+    background: none;
+    font-family: "Montserrat", Arial, Tahoma, sans-serif;
+}
+
+body {
+    min-height: 100dvh;
+    background-color: $white;
+}

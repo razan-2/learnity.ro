@@ -1,0 +1,133 @@
+* {
+  margin: 0;
+  padding: 0;
+  border: none;
+  background: none;
+  font-family: "Montserrat", Arial, Tahoma, sans-serif;
+}
+
+body {
+  min-height: 100dvh;
+  background-color: #f0e6dd;
+}
+
+nav {
+  background-color: #242331;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 100dvw;
+}
+
+.navigation-bar-normal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  max-height: 7dvh;
+  padding: 1% 0;
+}
+.navigation-bar-normal div {
+  width: 30%;
+  display: flex;
+}
+.navigation-bar-normal div img {
+  width: 40%;
+  height: auto;
+}
+.navigation-bar-normal .icons {
+  justify-content: space-evenly;
+}
+.navigation-bar-normal .icons a {
+  margin: 2% 4%;
+}
+.navigation-bar-normal .icons a i {
+  color: #f0e6dd;
+}
+.navigation-bar-normal .search-menu {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+
+.navigation-bar-mobile {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+}
+.navigation-bar-mobile a {
+  margin: 2% 4%;
+}
+.navigation-bar-mobile a i {
+  color: #f0e6dd;
+}
+
+.page-selected {
+  background-color: #f8a12e;
+}
+
+#checkbox2 {
+  display: none;
+}
+
+.toggle2 {
+  position: relative;
+  width: 60px;
+  height: 60px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  transition-duration: 0.5s;
+}
+
+.bars {
+  width: 100%;
+  height: 6px;
+  background-color: #f0e6dd;
+  border-radius: 6px;
+}
+
+#bar5 {
+  transition-duration: 0.8s;
+  width: 100%;
+}
+
+#bar4, #bar6 {
+  width: 80%;
+}
+
+#checkbox2:checked + .toggle2 .bars {
+  position: absolute;
+  transition-duration: 0.5s;
+}
+
+#checkbox2:checked + .toggle2 #bar5 {
+  transform: scaleX(0);
+  transition-duration: 0.5s;
+}
+
+#checkbox2:checked + .toggle2 #bar4 {
+  width: 100%;
+  transform: rotate(45deg);
+  transition-duration: 0.5s;
+}
+
+#checkbox2:checked + .toggle2 #bar6 {
+  width: 100%;
+  transform: rotate(-45deg);
+  transition-duration: 0.5s;
+}
+
+#checkbox2:checked + .toggle2 {
+  transition-duration: 0.5s;
+  transform: rotate(180deg);
+}/*# sourceMappingURL=navbar.css.map */
