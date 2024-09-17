@@ -1,9 +1,9 @@
 import React from 'react';
 
-export const About = () => {
+export const NotFound = () => {
     return ( 
         <main>
-            about us
+            not found
         </main>
-    );
+     );
 }
