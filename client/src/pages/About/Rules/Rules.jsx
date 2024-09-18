@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { RulesContext } from '../../../context/Rules/RulesContext';
-import logo from '../../../assets/logo/logo.svg'
+// import logo from '../../../assets/logo/logo.svg'
 
 export const Rules = () => {
     const { rules } = useContext(RulesContext);
@@ -10,7 +10,7 @@ export const Rules = () => {
                 <div className='flex'>
                     <h1>Our Rules</h1><p>inside</p>
                 </div>
-                <img src={logo} alt='logo' className='w-[50%]' />
+                <img src='' alt='logo' className='w-[50%]' />
             </div>
             <div>
                 {rules.map((rule) => {
