@@ -1,15 +1,16 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState, useEffect, useRef } from 'react';
 import { FrequentQuestionsContext } from '../../../context/FrequentQuestions/FrequentQuestionsContext';
 import { Link } from 'react-router-dom';
 import image from './images/image.jpg';
 
 export const FrequentQuestions = () => {
     const { questions } = useContext(FrequentQuestionsContext);
+
     return ( 
         <div>
             {questions.sort(function(){ return 0.5 - Math.random() }).slice(0, 5).map((question, index) => {
                 return (
-                    <div key={question.id} className='flex justify-center mb-[2%]'>
+                    <div key={question.id} className={`flex justify-center mb-[2%]`}>
                         <div className={`flex w-2/5 justify-between p-[5%] bg-customLightOrange`}>
                             <h1 className='font-light text-4xl'>{index+1}</h1>
                             <p className=''>{question.question}</p>

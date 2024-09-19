@@ -5,9 +5,9 @@ import { NotFound } from './components/NotFound/NotFound';
 import { About } from './pages/About/About';
 import { NavBar } from './components/NavBar/NavBar';
 import { Footer } from './components/Footer/Footer';
-import { MyAccount } from './pages/AccountRelated/MyAccount';
-import { NewsMainPage } from './pages/News/NewsMainPage';
-import { UpcomingEvents } from './pages/UpcomingEvents/UpcomingEvents';
+// import { MyAccount } from './pages/AccountRelated/MyAccount';
+// import { NewsMainPage } from './pages/News/NewsMainPage';
+// import { UpcomingEvents } from './pages/UpcomingEvents/UpcomingEvents';
 
 const Layout = () => {
   return (
@@ -37,15 +37,15 @@ function App() {
         },
         {
           path: '/account',
-          element: <MyAccount />
+          // element: <MyAccount />
         },
         {
           path: '/upcoming-events',
-          element: <UpcomingEvents />
+          // element: <UpcomingEvents />
         },
         {
           path: './news',
-          element: <NewsMainPage />
+          // element: <NewsMainPage />
         },
         {
           path: '*',
