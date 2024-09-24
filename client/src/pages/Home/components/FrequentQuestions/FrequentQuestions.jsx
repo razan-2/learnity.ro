@@ -1,5 +1,5 @@
 import React, { useContext, useState, useEffect, useRef } from 'react';
-import { FrequentQuestionsContext } from '../../../context/FrequentQuestions/FrequentQuestionsContext';
+import { FrequentQuestionsContext } from '../../../../context/FrequentQuestions/FrequentQuestionsContext';
 import { Link } from 'react-router-dom';
 import image from './images/image.jpg';
 
