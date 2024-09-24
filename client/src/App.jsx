@@ -5,6 +5,9 @@ import { NotFound } from './components/NotFound/NotFound';
 import { About } from './pages/About/About';
 import { NavBar } from './components/NavBar/NavBar';
 import { Footer } from './components/Footer/Footer';
+// import { MyAccount } from './pages/AccountRelated/MyAccount';
+// import { NewsMainPage } from './pages/News/NewsMainPage';
+// import { UpcomingEvents } from './pages/UpcomingEvents/UpcomingEvents';
 
 const Layout = () => {
   return (
@@ -31,6 +34,18 @@ function App() {
         {
           path: '/about-us',
           element: <About />
+        },
+        {
+          path: '/account',
+          // element: <MyAccount />
+        },
+        {
+          path: '/upcoming-events',
+          // element: <UpcomingEvents />
+        },
+        {
+          path: './news',
+          // element: <NewsMainPage />
         },
         {
           path: '*',
