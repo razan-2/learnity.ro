@@ -6,7 +6,7 @@ export const NavBar = () => {
     const [visible, setVisible] = useState(false);
 
     return ( 
-        <nav className='sticky top-0 left-0 w-[100%] bg-customBlack flex flex-col'>
+        <nav className='sticky top-0 left-0 w-[100%] z-10 shadow-2xl shadow-customBlack-500/50 bg-customBlack flex flex-col'>
             <div className='w-full flex'>
                 <div className="basis-1/3 flex justify-start">
                     <img src={logo} alt="logo" width={200} className='ml-[5%]'/>
@@ -36,11 +36,11 @@ export const NavBar = () => {
                 </div>
             </div>
             <div className={`${visible ? 'visible' : 'hidden'} flex justify-center`}>
-                <p className="text-2xl text-customWhite mx-[2%]">Home</p>
-                <p className="text-2xl text-customWhite mx-[2%]">About</p>
-                <p className="text-2xl text-customWhite mx-[2%]">Playground</p>
-                <p className="text-2xl text-customWhite mx-[2%]">Guided</p>
-                <p className="text-2xl text-customWhite mx-[2%]">Doneaza</p>
+                <Link to='/' className="text-2xl text-customWhite mx-[2%]">Home</Link>
+                <Link to='/about-us' className="text-2xl text-customWhite mx-[2%]">About</Link>
+                <Link className="text-2xl text-customWhite mx-[2%]">Playground</Link>
+                <Link className="text-2xl text-customWhite mx-[2%]">Guided</Link>
+                <Link className="text-2xl text-customWhite mx-[2%]">Doneaza</Link>
             </div>
         </nav>
     );
