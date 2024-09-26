@@ -11,7 +11,7 @@ export const NavBar = () => {
                 <div className="basis-1/3 flex justify-start">
                     <img src={logo} alt="logo" width={200} className='ml-[5%]'/>
                 </div>
-                <div className="basis-1/3 flex justify-around items-center flex-none">
+                <div className="basis-1/3 flex justify-around items-center flex-none ">
                     <Link to='/' className='p-[4%]'><i className="fa-solid fa-house fa-4x flex text-customWhite"></i></Link>
                     <Link to='/upcoming-events' className='p-[4%]'><i className="fa-solid fa-clock fa-4x text-customWhite"></i></Link>
                     <Link to='/account' className='p-[4%]'><i className="fa-solid fa-user fa-4x text-customWhite"></i></Link>
@@ -38,9 +38,9 @@ export const NavBar = () => {
             <div className={`${visible ? 'visible' : 'hidden'} flex justify-center`}>
                 <Link to='/' className="text-2xl text-customWhite mx-[2%]">Home</Link>
                 <Link to='/about-us' className="text-2xl text-customWhite mx-[2%]">About</Link>
-                <Link className="text-2xl text-customWhite mx-[2%]">Playground</Link>
-                <Link className="text-2xl text-customWhite mx-[2%]">Guided</Link>
-                <Link className="text-2xl text-customWhite mx-[2%]">Doneaza</Link>
+                <Link to='/playground' className="text-2xl text-customWhite mx-[2%]">Playground</Link>
+                <Link to='/guided-learning' className="text-2xl text-customWhite mx-[2%]">Guided</Link>
+                <Link to='/doneaza' className="text-2xl text-customWhite mx-[2%]">Doneaza</Link>
             </div>
         </nav>
     );

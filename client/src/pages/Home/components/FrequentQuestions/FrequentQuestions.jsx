@@ -1,4 +1,4 @@
-import React, { useContext, useState, useEffect, useRef } from 'react';
+import React, { useContext, useState, useEffect} from 'react';
 import { FrequentQuestionsContext } from '../../../../context/FrequentQuestions/FrequentQuestionsContext';
 import { Link } from 'react-router-dom';
 import image from './images/image.jpg';
@@ -7,24 +7,49 @@ export const FrequentQuestions = () => {
     const { questions } = useContext(FrequentQuestionsContext);
 
     return ( 
-        <div>
-            {questions.sort(function(){ return 0.5 - Math.random() }).slice(0, 5).map((question, index) => {
-                return (
-                    <div key={question.id} className={`flex justify-center mb-[2%]`}>
-                        <div className={`flex w-2/5 justify-between p-[5%] bg-customLightOrange`}>
-                            <h1 className='font-light text-4xl'>{index+1}</h1>
-                            <p className=''>{question.question}</p>
+        <div className='w-full flex flex-col bg-customWhite'>
+            <div>
+
+            </div>
+            <div className='w-full flex flex-col'>
+                {questions.sort(function(){ return 0.5 - Math.random() }).slice(0, 5).map((ask, index) => {
+                    if ((index+1) % 2 != 0) return (
+                        <div className='flex flex-col w-full overflow-hidden mb-[2%] md:flex-row' key={index}>
+                            <div className= 'bg-customOrange overflow-hidden rounded-b-full w-full text-center md:w-[60%] md:rounded-r-full md:flex'>
+                                <div>
+                                    <p>{index+1}</p>
+                                    <p>{ask.question}</p>
+                                </div>
+                                <div>
+                                    <img src={image} alt='image' className='rounded-full left-0' />
+                                </div>
+                            </div>
+                            <div className='bg-customWhite w-full text-center md:w-[40%]'>
+                                <p>{ask.answer}</p>
+                                <Link to={ask.path}>{ask.about}</Link>
+                            </div>
                         </div>
-                        <div className={`w-1/5 bg-transparent p-[1%] border-customLightOrange border-4 rounded-full`}>
-                            <img src={image} alt="" className='rounded-full' />
+                    )
+                    else return (
+                        <div key={index} className='flex flex-col w-full overflow-hidden mb-[2%] md:flex-row'>
+                            <div className='bg-customOrange rounded-b-full w-full text-center md:w-[40%] md:bg-customWhite md:flex'>
+                                <p>{index+1}</p>
+                                <p>{ask.question}</p>
+                                <img src={image} alt='image' className='visible md:hidden rounded-full left-0' />
+                            </div>
+                            <div className='bg-customWhite w-full text-center md:w-[60%] md:rounded-l-full md:bg-customOrange md:flex overflow-hidden'>
+                                <div>
+                                    <img src={image} alt='image' className='hidden md:visible rounded-full left-0' />
+                                </div>
+                                <div className=''>
+                                    <p>{ask.answer}</p>
+                                    <Link to={ask.path}>{ask.about}</Link>
+                                </div>
+                            </div>
                         </div>
-                        <div className={`flex flex-col w-2/5 p-[5%]`}>
-                            <p>{question.answer}</p>
-                            <Link to={question.to}>{question.about}</Link>
-                        </div>
-                    </div>
-                )
-            })}
+                    )
+                })}
+            </div>
         </div>
      );
 }

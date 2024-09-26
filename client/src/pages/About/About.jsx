@@ -1,5 +1,5 @@
 import React from 'react';
-import { Rules } from './Rules/Rules';
+import { Rules } from './components/Rules/Rules';
 import { RulesContextProvider } from '../../context/Rules/RulesContext';
 
 export const About = () => {

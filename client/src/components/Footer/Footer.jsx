@@ -39,7 +39,7 @@ export const Footer = () => {
                 </div>
                 <div className='text-center text-customWhite pb-5'>
                     <p>Website created & designed by <a>Andronachi Răzvan</a></p>
-                    <p>Copyright 2024. All rights reserved.</p>
+                    <p>© Copyright 2024. All rights reserved.</p>
                 </div>
             </div>
         </footer>

@@ -18,10 +18,16 @@ export default {
         fadeIn: {
           '0%': { opacity: '0'},
           '100%': { opacity: '1'}
+        },
+        headerFallBounce: {
+          '0%': { transform: 'translateY(-1000px)' },
+          // '50%': { transform: 'translateY(0px)' },
+          '100': { transform: 'translateY(0px)' }
         }
       },
       animation: {
-        fadeIn: 'fadeIn 1.5s ease-in-out'
+        fadeIn: 'fadeIn 1.5s ease-in-out',
+        headerFallBounce: 'headerFallBounce 1.5s ease-in-out'
       },
       
     },

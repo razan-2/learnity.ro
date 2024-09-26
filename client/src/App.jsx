@@ -5,9 +5,12 @@ import { NotFound } from './components/NotFound/NotFound';
 import { About } from './pages/About/About';
 import { NavBar } from './components/NavBar/NavBar';
 import { Footer } from './components/Footer/Footer';
-// import { MyAccount } from './pages/AccountRelated/MyAccount';
-// import { NewsMainPage } from './pages/News/NewsMainPage';
-// import { UpcomingEvents } from './pages/UpcomingEvents/UpcomingEvents';
+import { MyAccount } from './pages/AccountRelated/MyAccount';
+import { NewsMainPage } from './pages/News/NewsMainPage';
+import { UpcomingEvents } from './pages/UpcomingEvents/UpcomingEvents';
+import Playground from './pages/Playground/Playground';
+import Guided from './pages/Guided/Guided';
+import Doneaza from './pages/Doneaza/Doneaza';
 
 const Layout = () => {
   return (
@@ -32,20 +35,32 @@ function App() {
           element: <Home />
         },
         {
+          path: '/account',
+          element: <MyAccount />
+        },
+        {
+          path: '/upcoming-events',
+          element: <UpcomingEvents />
+        },
+        {
+          path: './news',
+          element: <NewsMainPage />
+        },
+        {
           path: '/about-us',
           element: <About />
         },
         {
-          path: '/account',
-          // element: <MyAccount />
+          path: '/playground',
+          element: <Playground />
         },
         {
-          path: '/upcoming-events',
-          // element: <UpcomingEvents />
+          path: '/guided-learning',
+          element: <Guided />
         },
         {
-          path: './news',
-          // element: <NewsMainPage />
+          path: '/doneaza',
+          element: <Doneaza />
         },
         {
           path: '*',
