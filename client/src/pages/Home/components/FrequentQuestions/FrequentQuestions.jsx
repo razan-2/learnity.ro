@@ -15,7 +15,7 @@ export const FrequentQuestions = () => {
                 {questions.sort(function(){ return 0.5 - Math.random() }).slice(0, 5).map((ask, index) => {
                     if ((index+1) % 2 != 0) return (
                         <div className='flex flex-col w-full overflow-hidden mb-[2%] md:flex-row' key={index}>
-                            <div className= 'bg-customOrange overflow-hidden rounded-b-full w-full text-center md:w-[60%] md:rounded-r-full md:flex'>
+                            <div className= 'bg-customOrange overflow-hidden rounded-b-full w-full text-center md:w-[60%] md:rounded-r-full md:rounded-bl-none md:flex'>
                                 <div>
                                     <p>{index+1}</p>
                                     <p>{ask.question}</p>
@@ -39,7 +39,7 @@ export const FrequentQuestions = () => {
                             </div>
                             <div className='bg-customWhite w-full text-center md:w-[60%] md:rounded-l-full md:bg-customOrange md:flex overflow-hidden'>
                                 <div>
-                                    <img src={image} alt='image' className='hidden md:visible rounded-full left-0' />
+                                    <img src={image} alt='image' className='max-[768px]:hidden rounded-full left-0' />
                                 </div>
                                 <div className=''>
                                     <p>{ask.answer}</p>
