@@ -5,7 +5,7 @@ import RedirectButton from '../../../../components/RedirectButton/RedirectButton
 
 export const About = () => {
     return (  
-        <div className='bg-[#05be9e]'>
+        <div className='bg-customBlack'>
             <div className='w-full pt-[2%]'>
                 <h1 className='text-customOrange text-6xl text-center font-bold'>~ About us ~</h1>
                 <div className='flex justify-between items-center'>

@@ -11,3 +11,8 @@ createRoot(document.getElementById('root')).render(
     </BrowserRouter>
   </StrictMode>,
 )
+
+// TODO: playground: fireplace, tower, arena, roots design
+// TODO: playground: events presentation section
+// TODO: automate things to be able to reuse these in the Playground page.
+// TODO: sectiunea de testimoniale

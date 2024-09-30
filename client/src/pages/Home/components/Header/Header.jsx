@@ -11,28 +11,34 @@ export const Header = () => {
                 </svg>
             </div>
             <div className='flex flex-col md:flex-row'>
-                <div className='w-full md:w-1/2 flex flex-col justify-center'>
-                    <div className='flex relative'>
+                <div className='w-full md:w-1/2 flex flex-col items-center'>
+                    <div className='flex relative pt-[10%]'>
                         {learnity.split('').map((char, index) => {
                             if (char === 'a') {
                                 return (
-                                    <img src={logo} width={96} key={index} className='animate-spinSlow' />
+                                    <img src={logo} key={index} className='animate-spinSlow w-12 md:w-24' />
                                 );
                             }
                             return (
-                                <h1 className='text-center text-8xl font-bold text-customBlack animate-headerFallBounce' key={index}>{char}</h1>
+                                <h1
+                                className={`text-center text-6xl font-bold text-customBlack animate-headerFallBounce md:text-8xl`}
+                                key={index}
+                                style={{ animationDuration: `${Math.random() * 2 + 1}s` }}
+                                >{char}</h1>
                             )
                         })}
                     </div>
-                    <div>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                    <div className='text-center px-[10%] my-[5%] font-semibold'>
+                    Learnity este o comunitate democratică de învățare alternativă pentru adolescenți: locul unde aceștia descoperă cine sunt, dezvoltă relații autentice cu ceilalți și au oportunitatea de a-și lua învățarea în propriile mâini.
                     </div>
-                    <div className='flex'>
-                        <p className='font-bold text-2xl text-customBlack'>Contact us: </p>
-                        <a href='tel:0744117331' className='mx-[1%]'><i className="fa-solid fa-phone fa-2x text-customBlack"></i></a>
-                        <a href='' className='mx-[1%]'><i className="fa-solid fa-envelope fa-2x text-customBlack"></i></a>
-                        <a href='https://www.instagram.com/learnityro/' className='mx-[1%]'><i className="fa-brands fa-instagram fa-2x text-customBlack"></i></a>
-                        <a href='https://www.facebook.com/learnity' className='mx-[1%]'><i className="fa-brands fa-facebook fa-2x text-customBlack"></i></a>
+                    <div className='flex flex-col w-full md:flex-row md:justify-center'>
+                        <p className='font-bold text-center text-2xl text-customBlack mb-[5%]'>Contact us: </p>
+                        <div className='flex w-full justify-evenly md:justify-center'>
+                            <a href='tel:0744117331' className='mx-[1%]'><i className="fa-solid fa-phone fa-2x text-customBlack"></i></a>
+                            <a href='' className='mx-[1%]'><i className="fa-solid fa-envelope fa-2x text-customBlack"></i></a>
+                            <a href='https://www.instagram.com/learnityro/' className='mx-[1%]'><i className="fa-brands fa-instagram fa-2x text-customBlack"></i></a>
+                            <a href='https://www.facebook.com/learnity' className='mx-[1%]'><i className="fa-brands fa-facebook fa-2x text-customBlack"></i></a>
+                        </div>
                     </div>
                 </div>
                 <div className='w-full md:w-1/2'>

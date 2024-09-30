@@ -1,4 +1,6 @@
 import React from 'react';
+import SearchBox from '../SearchBox/SearchBox';
+import { Link } from 'react-router-dom';
 
 export const Footer = () => {
     return ( 
@@ -8,34 +10,42 @@ export const Footer = () => {
                     <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" className="relative block fill-customWhite"></path>
                 </svg>
                 <div className='grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1'>
-                    <div className='flex flex-col gap-5 items-center'>
-                        <h2 className='text-customOrange text-3xl font-bold'>Contact</h2>
-                        <p className='text-customWhite'>email</p>
-                        <p className='text-customWhite'>0722334556</p>
-                        <p className='text-customWhite'>@learnityro</p>
+                    <div className='flex flex-col gap-3 items-center pb-[5%]'>
+                        <h2 className='text-customOrange text-3xl font-bold'>Account</h2>
+                        <Link to='/' className='text-customWhite font-semibold'>Your Account</Link>
+                        <Link to='/' className='text-customWhite font-semibold'>Log in</Link>
+                        <Link to='/' className='text-customWhite font-semibold'>Sign in</Link>
                     </div>
-                    <div className='flex flex-col gap-5 items-center'>
+                    <div className='flex flex-col gap-3 items-center pb-[5%]'>
                         <h2 className='text-customOrange text-3xl font-bold'>Pages</h2>
-                        <p className='text-customWhite'>Home</p>
-                        <p className='text-customWhite'>Guided</p>
-                        <p className='text-customWhite'>Playground</p>
+                        <Link to='/' className='text-customWhite font-semibold'>Home</Link>
+                        <Link to='/' className='text-customWhite font-semibold'>Despre noi</Link>
+                        <Link to='/' className='text-customWhite font-semibold'>Guided learning</Link>
+                        <Link to='/' className='text-customWhite font-semibold'>Playground</Link>
                     </div>
-                    <div className='flex flex-col gap-5 items-center'>
+                    <div className='flex flex-col gap-3 items-center pb-[5%]'>
                         <h2 className='text-customOrange text-3xl font-bold'>People</h2>
-                        <p className='text-customWhite'>Ana Predescu</p>
-                        <p className='text-customWhite'>Ana Stinghe</p>
-                        <p className='text-customWhite'>Alexandra Popescu</p>
-                        <p className='text-customWhite'>Gaspar Isabela</p>
+                        <p className='text-customWhite font-semibold'>Ana Predescu</p>
+                        <p className='text-customWhite font-semibold'>Ana Stinghe</p>
+                        <p className='text-customWhite font-semibold'>Alexandra Popescu</p>
+                        <p className='text-customWhite font-semibold'>Gaspar Isabela</p>
                     </div>
-                    <div className='flex flex-col gap-5 items-center'>
+                    <div className='flex flex-col gap-3 items-center pb-[10%]'>
                         <h2 className='text-customOrange text-3xl font-bold'>Contact</h2>
-                        <p className='text-customWhite'>email</p>
-                        <p className='text-customWhite'>0722334556</p>
-                        <p className='text-customWhite'>learnityro</p>
+                        <a to='' className='text-customWhite font-semibold'>Email: contact.learnity@gmail.com</a>
+                        <a to='tel:0722280009' className='text-customWhite font-semibold'>Phone: 0722280009</a>
+                        <a href='https://www.instagram.com/learnityro/' className='text-customWhite font-semibold'>Instagram: @learnityro</a>
+                        <a href='https://www.facebook.com/learnity' className='text-customWhite font-semibold'>Facebook: @learnityro</a>
                     </div>
                 </div>
+                <div className='flex justify-around md:justify-center'>
+                    <a href='tel:0744117331' className='md:mx-[1%]'><i className="fa-solid fa-phone fa-2x text-customWhite"></i></a>
+                    <a href='' className='md:mx-[1%]'><i className="fa-solid fa-envelope fa-2x text-customWhite"></i></a>
+                    <a href='https://www.instagram.com/learnityro/' className='md:mx-[1%]'><i className="fa-brands fa-instagram fa-2x text-customWhite"></i></a>
+                    <a href='https://www.facebook.com/learnity' className='md:mx-[1%]'><i className="fa-brands fa-facebook fa-2x text-customWhite"></i></a>
+                </div>
                 <div className='flex justify-center py-10'>
-                    <input type='text' placeholder='Search...' className='rounded-full w-[30vw] h-10 bg-customWhite text-customBlack' />
+                    <SearchBox />
                 </div>
                 <div className='text-center text-customWhite pb-5'>
                     <p>Website created & designed by <a>Andronachi Răzvan</a></p>
