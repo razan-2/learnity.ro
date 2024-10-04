@@ -1,50 +1,172 @@
-import React from 'react';
 import logo from '../../assets/vite.svg';
+import React, { useRef, useState, useEffect } from 'react'
+import { Canvas, useFrame } from '@react-three/fiber'
+import { OrbitControls } from '@react-three/drei'
+import { motion } from 'framer-motion'
+import { Mail, Phone, Facebook, Instagram } from 'lucide-react'
+
+function SpinningTop() {
+    const meshRef = useRef()
+    useFrame((state, delta) => {
+      meshRef.current.rotation.y += delta
+    })
+  
+    return (
+      <mesh ref={meshRef}>
+        <coneGeometry args={[1, 2, 32]} />
+        <meshStandardMaterial color="#F8A12E" />
+      </mesh>
+    )
+  }
+
+function Vector() {
+    return (
+        <div className="absolute bottom-0 left-0 w-full overflow-hidden transform rotate-180">
+            <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none" className='relative block h-[100%]'>
+                <path d="M1200,0H0V120H281.94C572.9,116.24,602.45,3.86,602.45,3.86h0S632,116.24,923,120h277Z" className="shape-fill fill-customBlue"></path>
+            </svg>
+        </div>
+    )
+}
+
+const Bubble = ({ color, size, position }) => (
+    <div 
+      className="absolute rounded-full opacity-20 transition-all duration-[3000ms] ease-in-out"
+      style={{
+        backgroundColor: color,
+        width: size,
+        height: size,
+        left: position.x,
+        top: position.y,
+      }}
+    />
+  );
+  
+  const BubblesDesign = () => {
+    const [bubbles, setBubbles] = useState([]);
+  
+    useEffect(() => {
+      const colors = ['#F8A12E', '#05be9e', '#2f2f27'];
+      const createBubble = () => ({
+        id: Math.random(),
+        color: colors[Math.floor(Math.random() * colors.length)],
+        size: `${Math.random() * 100 + 50}px`,
+        position: {
+          x: `${Math.random() * 100}%`,
+          y: `${Math.random() * 100}%`,
+        },
+      });
+  
+      // Initialize bubbles
+      setBubbles(Array(15).fill().map(createBubble));
+  
+      const interval = setInterval(() => {
+        setBubbles(prevBubbles => 
+          prevBubbles.map(bubble => ({
+            ...bubble,
+            position: {
+              x: `${Math.random() * 100}%`,
+              y: `${Math.random() * 100}%`,
+            },
+          }))
+        );
+      }, 3000);
+  
+      return () => clearInterval(interval);
+    }, []);
+    return (
+        <div>
+            {bubbles.map((bubble) => (
+            <Bubble 
+              key={bubble.id} 
+              color={bubble.color} 
+              size={bubble.size} 
+              position={bubble.position || { x: '0%', y: '0%' }} 
+            />
+            ))}
+        </div>
+    )
+  }
+
+function Title() {
+    const learnity = 'Learnity';
+    return (
+        <div className='flex relative pb-10 text-customBlack justify-center'>
+            {learnity.split('').map((char, index) => {
+                if (char === 'a') {
+                    return (
+                        <img src={logo} key={index} className='animate-spinSlow w-12 md:w-24' />
+                    );
+                }
+                return (
+                    <h1
+                    className={`text-center text-6xl font-bold text-customBlack animate-headerFallBounce md:text-8xl`}
+                    key={index}
+                    style={{ animationDuration: `${Math.random() * 2 + 1}s` }}
+                    >{char}</h1>
+                )
+            })}
+        </div>
+    )
+}
 
 export const Header = () => {
-    const learnity = 'Learnity';
-    return ( 
-        <header className='h-screen relative left-0 top-0 justify-center bg-customWhite'>
-            <div className="absolute bottom-0 left-0 w-full overflow-hidden transform rotate-180">
-                <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none" className='relative block h-[100%]'>
-                    <path d="M1200,0H0V120H281.94C572.9,116.24,602.45,3.86,602.45,3.86h0S632,116.24,923,120h277Z" className="shape-fill fill-customBlack"></path>
-                </svg>
+    const handleScrollToSection = (sectionId) => {
+      const section = document.getElementById(sectionId)
+      if (section) {
+        section.scrollIntoView({ behavior: 'smooth' })
+      }
+    }
+    return (
+      <header className="bg-[#F0E6DD] min-h-screen flex flex-col justify-center items-center p-8 relative overflow-hidden">
+        <Vector />
+        <BubblesDesign />
+        <motion.div 
+          initial={{ opacity: 0, y: -50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          className="text-center z-10 max-w-3xl"
+        >
+          <Title />
+          <p className="text-xl text-[#2f2f27] mb-8">
+          Porttitor class bibendum imperdiet malesuada pretium ultrices nostra habitant. Aptent iaculis neque magna accumsan mollis tellus sagittis tempus. Ex fermentum aptent suscipit pellentesque maximus mauris auctor! Donec inceptos orci feugiat urna potenti pharetra. Diam ipsum habitasse adipiscing neque semper? Orci maximus netus pharetra duis litora finibus placerat. Fringilla montes odio phasellus taciti turpis phasellus porta. Etiam facilisi erat elementum hendrerit auctor netus bibendum nunc dolor. Dictumst nisl accumsan fringilla adipiscing facilisi per porta.
+          </p>
+          
+          <motion.button 
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            className="bg-[#F8A12E] text-white px-8 py-3 rounded-full text-lg font-semibold hover:bg-[#e0911d] transition-colors mb-8"
+            onClick={() => handleScrollToSection('contact')}
+          >
+            Start Learning Now!
+          </motion.button>
+  
+          <div className="mt-8" id='contact'>
+            <h2 className="text-2xl font-semibold text-[#2f2f27] mb-4">Contact Us</h2>
+            <div className="flex justify-center space-x-6">
+              <a href="mailto:" className="text-[#05be9e] hover:text-[#04a589] transition-colors">
+                <Mail size={24} />
+                <span className="sr-only">Email</span>
+              </a>
+              <a href="tel:0722280009" className="text-[#05be9e] hover:text-[#04a589] transition-colors">
+                <Phone size={24} />
+                <span className="sr-only">Phone</span>
+              </a>
+              <a href="https://facebook.com/learnity" target="_blank" rel="noopener noreferrer" className="text-[#05be9e] hover:text-[#04a589] transition-colors">
+                <Facebook size={24} />
+                <span className="sr-only">Facebook</span>
+              </a>
+              <a href="https://instagram.com/learnityro" target="_blank" rel="noopener noreferrer" className="text-[#05be9e] hover:text-[#04a589] transition-colors">
+                <Instagram size={24} />
+                <span className="sr-only">Instagram</span>
+              </a>
             </div>
-            <div className='flex flex-col md:flex-row'>
-                <div className='w-full md:w-1/2 flex flex-col items-center'>
-                    <div className='flex relative pt-[10%]'>
-                        {learnity.split('').map((char, index) => {
-                            if (char === 'a') {
-                                return (
-                                    <img src={logo} key={index} className='animate-spinSlow w-12 md:w-24' />
-                                );
-                            }
-                            return (
-                                <h1
-                                className={`text-center text-6xl font-bold text-customBlack animate-headerFallBounce md:text-8xl`}
-                                key={index}
-                                style={{ animationDuration: `${Math.random() * 2 + 1}s` }}
-                                >{char}</h1>
-                            )
-                        })}
-                    </div>
-                    <div className='text-center px-[10%] my-[5%] font-semibold'>
-                    Learnity este o comunitate democratică de învățare alternativă pentru adolescenți: locul unde aceștia descoperă cine sunt, dezvoltă relații autentice cu ceilalți și au oportunitatea de a-și lua învățarea în propriile mâini.
-                    </div>
-                    <div className='flex flex-col w-full md:flex-row md:justify-center'>
-                        <p className='font-bold text-center text-2xl text-customBlack mb-[5%]'>Contact us: </p>
-                        <div className='flex w-full justify-evenly md:justify-center'>
-                            <a href='tel:0744117331' className='mx-[1%]'><i className="fa-solid fa-phone fa-2x text-customBlack"></i></a>
-                            <a href='' className='mx-[1%]'><i className="fa-solid fa-envelope fa-2x text-customBlack"></i></a>
-                            <a href='https://www.instagram.com/learnityro/' className='mx-[1%]'><i className="fa-brands fa-instagram fa-2x text-customBlack"></i></a>
-                            <a href='https://www.facebook.com/learnity' className='mx-[1%]'><i className="fa-brands fa-facebook fa-2x text-customBlack"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div className='w-full md:w-1/2'>
-                    titirez 3d
-                </div>
-            </div>
-        </header>
-     );
-}
+          </div>
+        </motion.div>
+  
+        
+  
+        <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#05be9e] to-transparent opacity-20"></div>
+      </header>
+    )
+  }

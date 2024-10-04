@@ -1,31 +1,13 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import logo from '../../assets/logo/logo.svg';
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
 
 export const NavBar = () => {
     const [visible, setVisible] = useState(false);
     const [isScrolling, setIsScrolling] = useState(false);
 
-    useEffect(() => {
-        const handleScroll = () => {
-        setIsScrolling(true);
-
-        // Reset the scrolling state after a short timeout (for example, 200ms)
-        setTimeout(() => {
-            setIsScrolling(false);
-        }, 200);
-        };
-
-        window.addEventListener('scroll', handleScroll);
-
-        // Cleanup the event listener on component unmount
-        return () => {
-        window.removeEventListener('scroll', handleScroll);
-        };
-    }, []);
-
     return (
-        <nav className={`sticky top-0 left-0 w-[100%] z-10 shadow-2xl shadow-customBlack-500/20 bg-customBlack flex flex-col`}>
+        <nav className={`sticky top-0 left-0 w-[100%] z-20 shadow-2xl shadow-customBlack-500/20 bg-customBlack flex flex-col`}>
             <div className='w-full flex justify-between'>
                 <div className="basis-1/3 flex justify-start">
                     <img src={logo} alt="logo" width={200} className='ml-[5%]'/>
@@ -54,7 +36,7 @@ export const NavBar = () => {
                     </div>
                 </div>
             </div>
-            <div className={`${visible ? 'visible' : 'hidden'} flex flex-col md:flex-row text-center justify-around`}>
+            <div className={`transition-all duration-700 overflow-hidden ${visible ? 'max-h-[200px]' : 'max-h-0'} flex flex-col md:flex-row text-center justify-around`}>
                 <Link to='/' className="text-2xl text-customWhite">Home</Link>
                 <Link to='/about-us' className="text-2xl text-customWhite">About</Link>
                 <Link to='/playground' className="text-2xl text-customWhite">Playground</Link>

@@ -12,7 +12,16 @@ createRoot(document.getElementById('root')).render(
   </StrictMode>,
 )
 
-// TODO: playground: fireplace, tower, arena, roots design
-// TODO: playground: events presentation section
-// TODO: automate things to be able to reuse these in the Playground page.
-// TODO: sectiunea de testimoniale
+// ! 2 octombrie
+
+// TODO: sectiunea de doneaza
+// TODO: sectiunea de about
+// TODO: sectiunea de guided
+// TODO: sectiunea de header (fara titirezul nebun)
+
+// ! 3 octombrie
+
+// TODO: sectiunea de poveste (design al scrisului)
+// TODO: sectiunea de principii
+
+// ! 4 octombrie

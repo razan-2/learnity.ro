@@ -11,6 +11,7 @@ import { UpcomingEvents } from './pages/UpcomingEvents/UpcomingEvents';
 import Playground from './pages/Playground/Playground';
 import Guided from './pages/Guided/Guided';
 import Doneaza from './pages/Doneaza/Doneaza';
+import ComingSoon from './components/ComingSoon/ComingSoon';
 
 const Layout = () => {
   return (
@@ -36,7 +37,7 @@ function App() {
         },
         {
           path: '/account',
-          element: <MyAccount />
+          element: <ComingSoon />
         },
         {
           path: '/upcoming-events',
