@@ -138,7 +138,7 @@ export const Header = () => {
             className="bg-[#F8A12E] text-white px-8 py-3 rounded-full text-lg font-semibold hover:bg-[#e0911d] transition-colors mb-8"
             onClick={() => handleScrollToSection('contact')}
           >
-            Start Learning Now!
+            Get started!
           </motion.button>
   
           <div className="mt-8" id='contact'>

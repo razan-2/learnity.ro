@@ -30,6 +30,7 @@ const Parts = ({ text, vector, name, direction }) => {
       variants={containerVariants}
       initial="hidden"
       animate="visible"
+      id='parts'
     >
       {/* Decorative shapes */}
       <motion.div

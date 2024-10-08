@@ -1,9 +1,15 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { motion } from 'framer-motion'
 
 const Presentation = () => {
+  const handleScrollToSection = (sectionId) => {
+    const section = document.getElementById(sectionId)
+    if (section) {
+      section.scrollIntoView({ behavior: 'smooth' })
+    }
+  }
   return (
-    <section className="relative mb-20 overflow-hidden py-20 px-4 sm:px-6 lg:px-8" style={{ backgroundColor: '#F0E6DD' }}>
+    <section className="relative h-[90dvh] overflow-hidden py-20 px-4 sm:px-6 lg:px-8" style={{ backgroundColor: '#F0E6DD' }}>
       {/* Wavy background */}
       <div className="absolute inset-0 z-0">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" className="absolute bottom-0">
@@ -26,12 +32,14 @@ const Presentation = () => {
         Euismod ligula quam in eget mattis conubia viverra. Eu elementum non; nibh egestas massa dapibus nam libero curae. Sit semper non vestibulum nunc; eleifend quisque per. Facilisi laoreet risus facilisi ut eros massa ullamcorper nisl. Facilisi faucibus et nascetur hac malesuada vivamus sollicitudin eleifend nisl. Lacinia ad commodo consectetur at euismod feugiat. Gravida senectus conubia convallis himenaeos pretium odio magnis luctus ad. Fringilla proin dui odio volutpat convallis.
         </p>
         <div className="mt-10">
-          <Link
-            to="/playground"
-            className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-full text-white bg-[#F8A12E] hover:bg-[#05be9e] transition-colors duration-300 ease-in-out transform hover:scale-105"
+        <motion.button 
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            className="bg-[#F8A12E] text-white px-8 py-3 rounded-full text-lg font-semibold hover:bg-[#e0911d] transition-colors mb-8"
+            onClick={() => handleScrollToSection('parts')}
           >
-            See more
-          </Link>
+            Get started!
+          </motion.button>
         </div>
       </div>
     </section>

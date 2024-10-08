@@ -7,6 +7,7 @@ import roots from '../Home/components/Playground/assets/roots.svg';
 import fireplace from '../Home/components/Playground/assets/fireplace.svg';
 import tower from '../Home/components/Playground/assets/tower.svg';
 import arena from '../Home/components/Playground/assets/arena.svg';
+import Presentation from './components/Presentation';
 
 const Playground = () => {
     // const { events } = useContext(EventsContext);
@@ -35,6 +36,7 @@ const Playground = () => {
     ])
     return (  
         <div className=''>
+            <Presentation />
             {parts.map((part, index) => {
                 return (
                     <Parts text={part.text} name={part.name} vector={part.vector} key={index} direction={index%2==0 ? true : false} />
