@@ -1,7 +1,6 @@
 import logo from '../../assets/vite.svg';
 import React, { useRef, useState, useEffect } from 'react'
-import { Canvas, useFrame } from '@react-three/fiber'
-import { OrbitControls } from '@react-three/drei'
+import { useFrame } from '@react-three/fiber'
 import { motion } from 'framer-motion'
 import { Mail, Phone, Facebook, Instagram } from 'lucide-react'
 

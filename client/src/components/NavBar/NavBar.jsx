@@ -14,10 +14,10 @@ export const NavBar = () => {
                     <img src={logo} alt="logo" width={200} className='ml-[5%]'/>
                 </div>
                 <div className="max-[700px]:hidden basis-1/3 flex justify-around items-center flex-none ">
-                    <Link to='/' className='p-[4%]'><i className="fa-solid fa-house fa-4x flex text-customWhite"></i></Link>
-                    <Link to='/upcoming-events' className='p-[4%]'><i className="fa-solid fa-clock fa-4x text-customWhite"></i></Link>
-                    <Link to='/account' className='p-[4%]'><i className="fa-solid fa-user fa-4x text-customWhite"></i></Link>
-                    <Link to='/news' className='p-[4%]'><i className="fa-solid fa-envelope fa-4x text-customWhite"></i></Link>
+                    <Link to='/' className='p-[4%]' onClick={() => {menu.checked = false; setVisible(!visible)}}><i className="fa-solid fa-house fa-4x flex text-customWhite"></i></Link>
+                    <Link to='/upcoming-events' className='p-[4%]' onClick={() => {menu.checked = false; setVisible(!visible)}}><i className="fa-solid fa-clock fa-4x text-customWhite"></i></Link>
+                    <Link to='/account' className='p-[4%]' onClick={() => {menu.checked = false; setVisible(!visible)}}><i className="fa-solid fa-user fa-4x text-customWhite"></i></Link>
+                    <Link to='/news' className='p-[4%]' onClick={() => {menu.checked = false; setVisible(!visible)}}><i className="fa-solid fa-envelope fa-4x text-customWhite"></i></Link>
                 </div>
                 <div className="basis-1/3 flex justify-end items-center shrink">
                     <div className='mr-[5%]'> 
