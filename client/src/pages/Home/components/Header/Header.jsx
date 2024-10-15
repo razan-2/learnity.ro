@@ -128,7 +128,7 @@ export const Header = () => {
         >
           <Title />
           <p className="text-xl text-[#2f2f27] mb-8">
-          Porttitor class bibendum imperdiet malesuada pretium ultrices nostra habitant. Aptent iaculis neque magna accumsan mollis tellus sagittis tempus. Ex fermentum aptent suscipit pellentesque maximus mauris auctor! Donec inceptos orci feugiat urna potenti pharetra. Diam ipsum habitasse adipiscing neque semper? Orci maximus netus pharetra duis litora finibus placerat. Fringilla montes odio phasellus taciti turpis phasellus porta. Etiam facilisi erat elementum hendrerit auctor netus bibendum nunc dolor. Dictumst nisl accumsan fringilla adipiscing facilisi per porta.
+          Learnity: o comunitate democratică de învățare alternativă pentru adolescenți, locul în care aceștia descoperă cine sunt, dezvoltă relații autentice cu ceilalți și învață despre mediul în care trăiesc.
           </p>
           
           <motion.button 
@@ -143,7 +143,7 @@ export const Header = () => {
           <div className="mt-8" id='contact'>
             <h2 className="text-2xl font-semibold text-[#2f2f27] mb-4">Contact Us</h2>
             <div className="flex justify-center space-x-6">
-              <a href="mailto:" className="text-[#05be9e] hover:text-[#04a589] transition-colors">
+              <a href="mailto:contact.learnity@gmail.com" className="text-[#05be9e] hover:text-[#04a589] transition-colors">
                 <Mail size={24} />
                 <span className="sr-only">Email</span>
               </a>

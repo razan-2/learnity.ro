@@ -1,14 +1,17 @@
 import React from 'react';
-import { Teachers } from '../Home/components/Guided/components/Teachers';
+import { Courses } from '../Home/components/Guided/components/Courses';
+import CoursesNow from './components/CoursesNow';
 import Details from './components/Details';
-import Courses from './components/Courses';
+import { EventsContextProvider } from '../../context/Events/EventsContext';
 
 const Guided = () => {
     return (  
         <div>
             <Details />
-            <Courses />
-            <Teachers />
+            <EventsContextProvider>
+                <CoursesNow />
+                <Courses />
+            </EventsContextProvider>
         </div>
     );
 }

@@ -11,17 +11,3 @@ createRoot(document.getElementById('root')).render(
     </BrowserRouter>
   </StrictMode>,
 )
-
-// ! 2 octombrie
-
-// TODO: sectiunea de doneaza
-// TODO: sectiunea de about
-// TODO: sectiunea de guided
-// TODO: sectiunea de header (fara titirezul nebun)
-
-// ! 3 octombrie
-
-// TODO: sectiunea de poveste (design al scrisului)
-// TODO: sectiunea de principii
-
-// ! 4 octombrie

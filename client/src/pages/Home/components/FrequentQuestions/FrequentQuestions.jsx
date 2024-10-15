@@ -22,7 +22,7 @@ const FrequentQuestions = () => {
               <h3 className="text-xl font-semibold">{ask.question}</h3>
             </div>
             <p className="mb-4">{ask.answer}</p>
-            <Link to={ask.path} ><RedirectButton2 text={ask.about} /></Link>
+            <RedirectButton2 text={ask.about} to={ask.path} />
           </div>
           <div className="bg-white p-6 md:w-1/3 flex items-center justify-center">
             <img

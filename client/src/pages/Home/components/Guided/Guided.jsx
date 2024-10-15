@@ -1,12 +1,15 @@
 import React from 'react';
-import { Teachers } from './components/Teachers';
+import { Courses } from './components/Courses';
 import Presentation from './components/Presentation';
+import { EventsContextProvider } from '../../../../context/Events/EventsContext';
 
 export const Guided = () => {
     return (  
         <div>
             <Presentation />
-            <Teachers />
+            <EventsContextProvider>
+                <Courses />
+            </EventsContextProvider>
         </div>
     );
 }

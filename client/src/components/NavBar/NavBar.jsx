@@ -1,48 +1,67 @@
-import React, { useRef, useState } from 'react';
-import logo from '../../assets/logo/logo.svg';
-import { Link } from 'react-router-dom';
+import React, { useState } from 'react';
+import { motion } from 'framer-motion';
+import { Home, Calendar, User, BookOpen, Menu } from 'lucide-react';
+import DropdownMenu from './DropdownMenu';
+import logo from '../../assets/logo/logo.svg'
+import { Link, useNavigate } from 'react-router-dom';
 
-export const NavBar = () => {
-    const [visible, setVisible] = useState(false);
-    const ref = useRef(null)
-    const menu = ref.current;
+const iconVariants = {
+  active: { scale: 2.1, color: '#F8A12E' },
+  inactive: { scale: 2, color: '#F0E6DD' },
+};
+
+export const NavBar = ({ currentPage = '/' }) => {
+    const navigate = useNavigate();
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+    const icons = [
+        { name: "/", Icon: Home },
+        { name: "/upcoming-events", Icon: Calendar },
+        { name: "/account", Icon: User },
+        { name: "/blog", Icon: BookOpen },
+    ];
 
     return (
-        <nav className={`sticky top-0 left-0 w-[100%] z-20 shadow-2xl shadow-customBlack-500/20 bg-customBlack flex flex-col`}>
-            <div className='w-full flex justify-between'>
-                <div className="basis-1/3 flex justify-start">
-                    <img src={logo} alt="logo" width={200} className='ml-[5%]'/>
-                </div>
-                <div className="max-[700px]:hidden basis-1/3 flex justify-around items-center flex-none ">
-                    <Link to='/' className='p-[4%]' onClick={() => {menu.checked = false; setVisible(!visible)}}><i className="fa-solid fa-house fa-4x flex text-customWhite"></i></Link>
-                    <Link to='/upcoming-events' className='p-[4%]' onClick={() => {menu.checked = false; setVisible(!visible)}}><i className="fa-solid fa-clock fa-4x text-customWhite"></i></Link>
-                    <Link to='/account' className='p-[4%]' onClick={() => {menu.checked = false; setVisible(!visible)}}><i className="fa-solid fa-user fa-4x text-customWhite"></i></Link>
-                    <Link to='/news' className='p-[4%]' onClick={() => {menu.checked = false; setVisible(!visible)}}><i className="fa-solid fa-envelope fa-4x text-customWhite"></i></Link>
-                </div>
-                <div className="basis-1/3 flex justify-end items-center shrink">
-                    <div className='mr-[5%]'> 
-                        <label className="flex flex-col gap-2 w-8">
-                        <input className="peer hidden" ref={ref} type="checkbox" onChange={() => setVisible(!visible)} />
-                        <div
-                            className="rounded-2xl h-[3px] w-1/2 bg-customWhite duration-500 peer-checked:rotate-[225deg] origin-right peer-checked:-translate-x-[12px] peer-checked:-translate-y-[1px]"
-                        ></div>
-                        <div
-                            className="rounded-2xl h-[3px] w-full bg-customWhite duration-500 peer-checked:-rotate-45"
-                        ></div>
-                        <div
-                            className="rounded-2xl h-[3px] w-1/2 bg-customWhite duration-500 place-self-end peer-checked:rotate-[225deg] origin-left peer-checked:translate-x-[12px] peer-checked:translate-y-[1px]"
-                        ></div>
-                        </label>
-                    </div>
-                </div>
+        <nav className="bg-[#2f2f27] p-4 flex items-center justify-between sticky top-0 left-0 z-20 shadow-2xl shadow-customBlack-500/20">
+            <div className="flex items-center">
+                <Link to='/'><img src={logo} alt="Learnity Logo" className="h-16 w-auto" /></Link>
             </div>
-            <div className={`transition-all duration-700 overflow-hidden ${visible ? 'max-h-[200px]' : 'max-h-0'} flex flex-col md:flex-row text-center justify-around`}>
-                <Link to='/' className="text-2xl text-customWhite" onClick={() => {menu.checked = false; setVisible(!visible)}}>Home</Link>
-                <Link to='/about-us' className="text-2xl text-customWhite" onClick={() => {menu.checked = false; setVisible(!visible)}}>About</Link>
-                <Link to='/playground' className="text-2xl text-customWhite" onClick={() => {menu.checked = false; setVisible(!visible)}}>Playground</Link>
-                <Link to='/guided-learning' className="text-2xl text-customWhite" onClick={() => {menu.checked = false; setVisible(!visible)}}>Guided</Link>
-                <Link to='/doneaza' className="text-2xl text-customWhite" onClick={() => {menu.checked = false; setVisible(!visible)}}>Doneaza</Link>
+            
+            <div className="hidden md:flex space-x-6">
+                {icons.map(({ name, Icon }) => (
+                <motion.div
+                    key={name}
+                    variants={iconVariants}
+                    initial="inactive"
+                    animate={currentPage.location == name ? 'active' : 'inactive'}
+                    whileHover={{ scale: 2.1 }}
+                    whileTap={{ scale: 1.9 }}
+                    transition={{ type: 'spring', stiffness: 300 }}
+                >
+                    <Icon 
+                    className="w-6 h-6 cursor-pointer mx-5" 
+                    onClick={() => navigate(name)}
+                    />
+                </motion.div>
+                ))}
+            </div>
+            
+            <div className="relative">
+                <motion.button
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.95 }}
+                onClick={() => setIsMenuOpen(!isMenuOpen)}
+                className="text-[#F0E6DD] focus:outline-none"
+                >
+                <Menu className="w-6 h-6" />
+                </motion.button>
+                
+                <DropdownMenu isOpen={isMenuOpen} setIsOpen={setIsMenuOpen} />
             </div>
         </nav>
     );
 }
+
+// logo - h-16, src
+// icon size
+// links

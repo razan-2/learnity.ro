@@ -14,7 +14,7 @@ export default Presentation = () => {
           </p>
         </div>
         <div className="text-center">
-          <RedirectButton text='See more' />
+          <RedirectButton text='See more' to='/guided-learning' />
         </div>
       </div>
       <div className="absolute bottom-0 left-0 right-0 h-16 overflow-hidden">

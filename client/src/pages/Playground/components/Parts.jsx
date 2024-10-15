@@ -1,5 +1,6 @@
 import React from 'react'
 import { motion } from 'framer-motion'
+import RedirectButton2 from '../../../components/RedirectButton2/RedirectButton2'
 
 const Parts = ({ text, vector, name, direction }) => {
   const containerVariants = {
@@ -50,6 +51,7 @@ const Parts = ({ text, vector, name, direction }) => {
         <motion.div className="w-full md:w-1/2 p-6" variants={textVariants}>
           <h2 className={`text-4xl font-bold mb-4 ${direction ? 'text-customWhite' : 'text-customOrange'}`}>{name}</h2>
           <p className={`text-xl ${direction ? 'text-customWhite' : 'text-gray-700'}`}>{text}</p>
+          <RedirectButton2 text='See more' to='/education-unplugged' />
         </motion.div>
         <motion.div 
           className="w-full md:w-1/2 p-6 flex justify-center"
